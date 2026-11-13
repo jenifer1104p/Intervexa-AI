@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d18">
+
+    <title>Intervexa AI — Intelligent Interview Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a class="brand" href="/">
+            <span class="brand-mark">✳</span>
+            <span>intervexa<span class="brand-ai">.ai</span></span>
+        </a>
+
+        <div class="side-label">WORKSPACE</div>
+
+        <a class="nav-item active" href="#">
+            <span class="nav-icon">⌂</span>
+            Interview studio
+            <span class="nav-dot"></span>
+        </a>
+
+        <div class="side-label side-label-spaced">
+            YOUR PREPARATION
+        </div>
+
+        <div class="side-note">
+            <span class="note-icon">✦</span>
+
+            <div>
+                <b>Practice with purpose</b>
+                <small>
+                    Generate focused questions and build
+                    confidence one answer at a time.
+                </small>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="local-badge">
+                <span></span> LOCAL AI ENGINE
+            </div>
+
+            <p>
+                Powered by Ollama<br>
+                Runs on your machine
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                Workspace <span>/</span>
+                <b>Interview studio</b>
+            </div>
+
+            <div class="top-right">
+
+                <span class="secure">
+                    <i></i> Private local session
+                </span>
+
+                <div class="avatar">AI</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+                    <span class="spark">✦</span>
+                    YOUR PERSONAL AI INTERVIEWER
+                </div>
+
+                <h1>
+                    Prepare smarter.<br>
+                    <span>Show up confident.</span>
+                </h1>
+
+                <p>
+                    Turn your next interview into an opportunity.
+                    Generate tailored technical questions with
+                    your personal AI assistant.
+                </p>
+
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+
+                <div class="orbit orbit-a"></div>
+                <div class="orbit orbit-b"></div>
+
+                <div class="orb-core">
+                    <span>✳</span>
+                </div>
+
+                <div class="float-card float-top">
+                    <span class="float-check">✓</span>
+                    Practice mode <b>ON</b>
+                </div>
+
+                <div class="float-card float-bottom">
+                    <span class="pulse"></span>
+                    AI is ready
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKSPACE -->
+        <section class="workspace-grid">
+
+
+            <!-- CONFIGURATION PANEL -->
+            <div class="panel setup-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <div class="step-label">01 / CONFIGURE</div>
+                        <h2>Build your practice</h2>
+                    </div>
+
+                    <span class="heading-icon">⌘</span>
+
+                </div>
+
+                <p class="panel-description">
+                    Choose your technology, difficulty and custom topic.
+                    Your AI interviewer will create a personalized
+                    practice session.
+                </p>
+
+
+                <form id="question-form">
+
+                    <!-- TECHNOLOGY -->
+                    <label for="skill">
+                        TECHNOLOGY / SKILL
+                    </label>
+
+                    <div class="select-wrap">
+
+                        <span class="field-symbol">⌘</span>
+
+                        <select id="skill" name="skill">
+
+                            <option>Java</option>
+                            <option>Python</option>
+                            <option>SQL</option>
+                            <option>JavaScript</option>
+                            <option>React</option>
+                            <option>Spring Boot</option>
+                            <option>HTML & CSS</option>
+                            <option>Data Structures</option>
+                            <option>Operating Systems</option>
+                            <option>Computer Networks</option>
+
+                        </select>
+
+                        <span class="chevron">⌄</span>
+
+                    </div>
+
+
+                    <!-- CUSTOM TOPIC -->
+                    <label for="customTopic">
+
+                        CUSTOM TOPIC / QUESTION
+
+                        <span style="color:#8290a8;font-weight:400;">
+                            (OPTIONAL)
+                        </span>
+
+                    </label>
+
+                    <textarea
+                        id="customTopic"
+                        name="customTopic"
+                        class="custom-topic"
+                        rows="3"
+                        maxlength="500"
+                        placeholder="Example: Explain Java multithreading with a practical example..."
+                    ></textarea>
+
+                    <div class="topic-hint">
+                        ✦ Enter a topic or your own interview question.
+                    </div>
+
+
+                    <!-- DIFFICULTY -->
+                    <label>DIFFICULTY LEVEL</label>
+
+                    <div class="level-options"
+                         role="group"
+                         aria-label="Difficulty">
+
+                        <button
+                            type="button"
+                            class="level-option selected"
+                            data-level="Beginner">
+
+                            <span class="level-dot"></span>
+                            Beginner
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="level-option"
+                            data-level="Intermediate">
+
+                            <span class="level-dot"></span>
+                            Intermediate
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="level-option"
+                            data-level="Advanced">
+
+                            <span class="level-dot"></span>
+                            Advanced
+
+                        </button>
+
+                    </div>
+
+                    <input
+                        type="hidden"
+                        id="difficulty"
+                        value="Beginner"
+                    >
+
+
+                    <!-- GENERATE BUTTON -->
+                    <div class="form-footer">
+
+                        <span class="generation-time">
+                            ✦ &nbsp; Powered by local AI
+                        </span>
+
+                        <button
+                            class="primary-btn"
+                            type="submit"
+                            id="generate-btn">
+
+                            <span>Generate question</span>
+                            <span class="btn-arrow">↗</span>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- OUTPUT PANEL -->
+            <div class="panel output-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <div class="step-label">02 / YOUR PRACTICE</div>
+                        <h2>Interview question</h2>
+                    </div>
+
+                    <span class="live-tag">
+                        <i></i> LIVE OUTPUT
+                    </span>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+                <div id="empty-state" class="empty-state">
+
+                    <div class="empty-icon">
+                        <span>✧</span>
+                    </div>
+
+                    <h3>Your next question starts here</h3>
+
+                    <p>
+                        Select a skill and click Generate question
+                        to begin your practice session.
+                    </p>
+
+                    <div class="empty-hint">
+                        <span>↳</span>
+                        Your answer and follow-up will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- LOADING STATE -->
+                <div id="loading-state"
+                     class="loading-state hidden">
+
+                    <div class="loader"></div>
+
+                    <h3>Thinking up a great question…</h3>
+
+                    <p>
+                        Your local AI is preparing your practice prompt.
+                    </p>
+
+                </div>
+
+
+                <!-- RESULT STATE -->
+                <div id="result-state"
+                     class="result-state hidden">
+
+
+                    <div class="result-meta">
+
+                        <span id="result-skill"
+                              class="skill-chip">JAVA</span>
+
+                        <span id="result-level">
+                            BEGINNER LEVEL
+                        </span>
+
+                        <span class="result-time">
+                            JUST GENERATED
+                        </span>
+
+                    </div>
+
+
+                    <!-- INTERVIEW QUESTION -->
+                    <div class="answer-block question-block">
+
+                        <div class="block-title">
+                            <span class="block-number">Q</span>
+                            INTERVIEW QUESTION
+                        </div>
+
+                        <div
+                            id="question-text"
+                            class="generated-text">
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPECTED ANSWER -->
+                    <div class="answer-block">
+
+                        <div class="block-title">
+
+                            <span class="block-number answer-number">
+                                A
+                            </span>
+
+                            EXPECTED ANSWER
+
+                        </div>
+
+                        <div
+                            id="answer-text"
+                            class="generated-text">
+                        </div>
+
+                    </div>
+
+
+                    <!-- FOLLOW-UP QUESTION -->
+                    <div class="answer-block followup-block">
+
+                        <div class="block-title">
+
+                            <span class="block-number follow-number">
+                                ↗
+                            </span>
+
+                            FOLLOW-UP QUESTION
+
+                        </div>
+
+                        <div
+                            id="followup-text"
+                            class="generated-text">
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI ANSWER EVALUATION -->
+                    <div class="answer-evaluation">
+
+                        <div class="block-title">
+
+                            <span class="block-number">✎</span>
+
+                            YOUR ANSWER
+
+                        </div>
+
+                        <p class="evaluation-description">
+                            Write your answer to this interview question.
+                            Your AI interviewer will evaluate your response.
+                        </p>
+
+                        <textarea
+                            id="candidate-answer"
+                            class="custom-topic"
+                            rows="5"
+                            maxlength="3000"
+                            placeholder="Type your interview answer here..."
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            id="evaluate-btn"
+                            class="primary-btn">
+
+                            Evaluate my answer
+                            <span>↗</span>
+
+                        </button>
+
+
+                        <!-- EVALUATION LOADING -->
+                        <div
+                            id="evaluation-loading"
+                            class="loading-state hidden">
+
+                            <div class="loader"></div>
+
+                            <h3>Evaluating your answer...</h3>
+
+                            <p>
+                                Your AI interviewer is reviewing your response.
+                            </p>
+
+                        </div>
+
+
+                        <!-- EVALUATION RESULT -->
+                        <div
+                            id="evaluation-result"
+                            class="hidden">
+
+                            <div class="answer-block">
+
+                                <div class="block-title">
+                                    ✦ AI EVALUATION
+                                </div>
+
+                                <h2
+                                    id="evaluation-score"
+                                    style="font-size:32px;color:#a78bfa;margin:15px 0;">
+                                    --/10
+                                </h2>
+
+                                <div
+                                    id="evaluation-feedback"
+                                    class="generated-text">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EVALUATION ERROR -->
+                        <div
+                            id="evaluation-error"
+                            class="hidden">
+
+                            <p id="evaluation-error-message"></p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESULT ACTIONS -->
+                    <div class="result-actions">
+
+                        <button
+                            id="copy-btn"
+                            class="secondary-btn">
+
+                            ▢ &nbsp; Copy practice
+
+                        </button>
+
+                        <button
+                            id="again-btn"
+                            class="primary-btn small-btn">
+
+                            Generate another
+                            <span>↗</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GENERATION ERROR -->
+                <div id="error-state"
+                     class="error-state hidden">
+
+                    <div class="error-icon">!</div>
+
+                    <h3>We couldn't generate a question</h3>
+
+                    <p id="error-message">
+                        Check that your Spring Boot backend and
+                        Ollama are running, then try again.
+                    </p>
+
+                    <button
+                        id="retry-btn"
+                        class="secondary-btn">
+
+                        Try again
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <span>
+                INTERVEXA AI
+                <span class="footer-sep">/</span>
+                INTERVIEW PRACTICE
+            </span>
+
+            <span>
+                Built with Spring Boot + Ollama
+                <span class="footer-heart">✦</span>
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="/app.js"></script>
+
+</body>
+</html>
