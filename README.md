@@ -1,89 +1,92 @@
-# Prepwise AI — Interview Practice Studio
+# Intervexa AI
 
-A full-stack interview-question generator built on your original Spring Boot + Spring AI + Ollama project. The UI is served directly by Spring Boot, so there is no separate frontend server or CORS configuration to manage.
-
-## Stack
-
-- Java 21
-- Spring Boot 3.5.6
-- Spring AI 1.0.9
-- Ollama with `qwen2.5:3b`
-- HTML, CSS and vanilla JavaScript (served from Spring Boot static resources)
+An AI-powered interview preparation platform built with **Java, Spring Boot, Spring AI, Ollama, and vanilla JavaScript**. It helps learners practise technical interview questions, receive AI-generated feedback, and track their preparation progress.
 
 ## Features
 
-- Responsive interview-practice dashboard
-- Skill selection (Java, Python, SQL, JavaScript, React, Spring Boot, HTML/CSS, DSA, OS and networking)
-- Beginner, Intermediate and Advanced difficulty
-- AI-generated interview question, expected answer and follow-up question
-- Loading, empty, error and retry states
-- Copy practice set
-- No database required; no MongoDB required
+- **AI Interview Practice** – generate technology-specific questions by difficulty and optional topic.
+- **Answer Evaluation** – submit an answer and receive AI-generated feedback and a score.
+- **Mock Interview** – practise a multi-question interview flow.
+- **Analytics** – review practice activity and score summaries.
+- **Interview History** – revisit saved practice sessions.
+- **Learning Roadmap** – track learning tasks across Java, Python, SQL, and React.
+- **Settings** – manage local preferences and available data actions.
 
-## Requirements
+> **Current MVP note:** Interview history, analytics, roadmap progress, and preferences are stored in the browser using `localStorage`. They are not yet persisted to a server-side database. The application does not currently implement user authentication.
 
-1. Java 21
-2. Maven (or use the included Maven wrapper)
-3. Ollama installed and running
+## Tech Stack
 
-Pull the configured model once:
+| Layer | Technology |
+|---|---|
+| Backend | Java, Spring Boot 3.5.6, Spring Web |
+| AI integration | Spring AI, Ollama |
+| Local language model | `qwen2.5:3b` (configurable) |
+| Frontend | HTML5, CSS3, JavaScript |
+| Build | Maven |
 
-```bash
-ollama pull qwen2.5:3b
+## Prerequisites
+
+- Java 21 or later
+- Maven (or use the included Maven Wrapper)
+- Ollama installed and running locally
+- The model used by the default configuration pulled in Ollama
+
+## Run Locally
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/<your-github-username>/Intervexa-AI.git
+   cd Intervexa-AI
+   ```
+
+2. Pull and start the model in Ollama:
+
+   ```bash
+   ollama pull qwen2.5:3b
+   ollama serve
+   ```
+
+   If Ollama is already running as a background service, the `ollama serve` command may not be needed.
+
+3. Start the Spring Boot application:
+
+   **Windows**
+   ```powershell
+   .\mvnw.cmd spring-boot:run
+   ```
+
+   **macOS / Linux**
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+   Alternatively, import the project as an existing Maven project in Eclipse / Spring Tool Suite and run `AiOllamaApplication.java`.
+
+4. Open the application:
+
+   ```text
+   http://localhost:8088/
+   ```
+
+## Configuration
+
+Edit `src/main/resources/application.properties` to change the port, Ollama URL, model, or temperature:
+
+```properties
+spring.application.name=IntervexaAI
+server.port=8088
+spring.ai.ollama.base-url=http://localhost:11434
+spring.ai.ollama.chat.options.model=qwen2.5:3b
+spring.ai.ollama.chat.options.temperature=0.7
 ```
 
-Make sure Ollama is running. Its default API address is `http://localhost:11434`.
+Make sure the configured model is available locally in Ollama.
 
-## Run the application
-
-From the `AIOllama` project directory:
-
-Windows:
-
-```bat
-mvnw.cmd spring-boot:run
-```
-
-macOS/Linux:
-
-```bash
-./mvnw spring-boot:run
-```
-
-Or run with an installed Maven:
-
-```bash
-mvn spring-boot:run
-```
-
-Open:
+## Project Structure
 
 ```text
-http://localhost:8089/
-```
-
-The frontend and API are served by the same Spring Boot process.
-
-## API
-
-```http
-GET /interview/question?skill=Java&difficulty=Beginner
-```
-
-Supported difficulty values: `Beginner`, `Intermediate`, `Advanced`.
-
-The original API remains compatible:
-
-```http
-GET /interview/question?skill=Java
-```
-
-When difficulty is omitted, it defaults to `Beginner`.
-
-## Project structure
-
-```text
-AIOllama/
+Intervexa-AI/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/demo/
@@ -97,18 +100,36 @@ AIOllama/
 │   │           └── app.js
 │   └── test/
 ├── pom.xml
+├── mvnw
+├── mvnw.cmd
 └── README.md
 ```
 
-## Troubleshooting
+## API Endpoints
 
-- **Cannot connect to backend:** confirm Spring Boot started on port `8089`.
-- **Ollama connection refused:** start Ollama and confirm it listens on `11434`.
-- **Model not found:** run `ollama pull qwen2.5:3b`.
-- **Slow first response:** the first model invocation may take longer while Ollama loads the model into memory.
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `GET` | `/interview/question` | Generate a question using `skill`, `difficulty`, and optional `customTopic` query parameters |
+| `POST` | `/interview/evaluate` | Evaluate a submitted answer (JSON request body) |
 
-## Notes
+## Notes & Limitations
 
-- This is a local development project. The AI response is generated by the configured local Ollama model; answer quality depends on the model.
-- The frontend uses Google Fonts when internet access is available and falls back to local system fonts otherwise.
-- No database is configured or needed for the current feature set.
+- Ollama must be running and the selected model must be downloaded before AI features can work.
+- AI-generated scores and feedback are suggestions; they should not be treated as an objective hiring assessment.
+- Basic server-side answer screening is heuristic-based and may not correctly classify every valid or invalid answer.
+- Browser-stored data is local to the browser profile and device. Clearing site data can remove it.
+- This repository is an educational portfolio project / MVP, not a production hiring system.
+
+## Future Improvements
+
+- Persist users, interviews, and analytics in MySQL.
+- Add authentication and per-user data isolation.
+- Expand automated controller and integration tests.
+- Improve answer-quality validation and structured AI responses.
+- Add deployment configuration and CI checks.
+
+## Author
+
+**Jemima Mary P**
+
+Java Full Stack & AI application development portfolio project.

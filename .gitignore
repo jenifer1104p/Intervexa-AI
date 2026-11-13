@@ -1,0 +1,21 @@
+# Maven / build output
+target/
+build/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.classpath
+.project
+.factorypath
+.settings/
+.sts4-cache/
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
