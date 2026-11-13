@@ -1,89 +1,150 @@
-# Intervexa AI
 
-An AI-powered interview preparation platform built with **Java, Spring Boot, Spring AI, Ollama, and vanilla JavaScript**. It helps learners practise technical interview questions, receive AI-generated feedback, and track their preparation progress.
+<div align="center">
 
-## Features
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,45:312E81,100:06B6D4&height=190&section=header&text=INTERVEXA%20AI&fontSize=48&fontColor=FFFFFF&fontAlignY=38&animation=fadeIn&desc=AI-Powered%20Technical%20Interview%20Preparation&descAlignY=60&descSize=16" width="100%" alt="Intervexa AI animated header" />
 
-- **AI Interview Practice** – generate technology-specific questions by difficulty and optional topic.
-- **Answer Evaluation** – submit an answer and receive AI-generated feedback and a score.
-- **Mock Interview** – practise a multi-question interview flow.
-- **Analytics** – review practice activity and score summaries.
-- **Interview History** – revisit saved practice sessions.
-- **Learning Roadmap** – track learning tasks across Java, Python, SQL, and React.
-- **Settings** – manage local preferences and available data actions.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1100&color=22D3EE&center=true&vCenter=true&width=650&lines=Prepare+smarter.+Practice+with+AI.;Generate+technical+questions.;Get+instant+AI-powered+feedback.;Build+confidence+one+answer+at+a+time." alt="Typing animation" />
 
-> **Current MVP note:** Interview history, analytics, roadmap progress, and preferences are stored in the browser using `localStorage`. They are not yet persisted to a server-side database. The application does not currently implement user authentication.
+<br/>
 
-## Tech Stack
+![Java](https://img.shields.io/badge/Java-21%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.6-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring AI](https://img.shields.io/badge/Spring%20AI-Integration-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-Local%20AI-black?style=for-the-badge)
+
+**An interactive interview preparation platform powered by a locally running AI model.**
+
+
+</div>
+
+---
+
+## ✨ About Intervexa AI
+
+Intervexa AI is an AI-powered technical interview preparation platform designed to help learners improve their interview skills through intelligent question generation, answer evaluation, mock interviews, and preparation tracking.
+
+Built using **Java, Spring Boot, Spring AI, Ollama, and JavaScript**, the application integrates a locally running language model to provide interactive interview practice and AI-generated feedback.
+
+## 🚀 Key Features
+
+| Feature | Description |
+|---|---|
+| 🎯 AI Interview | Generate technical questions based on skill and difficulty |
+| 🧠 AI Evaluation | Receive answer feedback and scores |
+| 🎤 Mock Interview | Practise a multi-question interview session |
+| 📊 Analytics | Track practice activity and performance |
+| 🗂️ Interview History | Review previous interview attempts |
+| 🧭 Learning Roadmap | Track Java, Python, SQL, and React learning tasks |
+| ⚙️ Settings | Manage preferences and local data |
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![Spring AI](https://img.shields.io/badge/Spring_AI-6DB33F?style=flat-square&logo=spring&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-111827?style=flat-square)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+
+</div>
 
 | Layer | Technology |
 |---|---|
 | Backend | Java, Spring Boot 3.5.6, Spring Web |
-| AI integration | Spring AI, Ollama |
-| Local language model | `qwen2.5:3b` (configurable) |
+| AI Integration | Spring AI, Ollama |
+| AI Model | Qwen 2.5 3B |
 | Frontend | HTML5, CSS3, JavaScript |
-| Build | Maven |
+| Build Tool | Maven |
 
-## Prerequisites
+## ⚡ Getting Started
+
+### Prerequisites
 
 - Java 21 or later
-- Maven (or use the included Maven Wrapper)
-- Ollama installed and running locally
-- The model used by the default configuration pulled in Ollama
+- Ollama installed
+- Maven or included Maven Wrapper
+- Git
 
-## Run Locally
+### 1. Clone the Repository
 
-1. Clone this repository:
+```bash
+git clone https://github.com/jenifer1104p/Intervexa-AI.git
+cd Intervexa-AI
+```
 
-   ```bash
-   git clone https://github.com/<your-github-username>/Intervexa-AI.git
-   cd Intervexa-AI
-   ```
+### 2. Download the AI Model
 
-2. Pull and start the model in Ollama:
+```bash
+ollama pull qwen2.5:3b
+```
 
-   ```bash
-   ollama pull qwen2.5:3b
-   ollama serve
-   ```
+Make sure Ollama is running. If needed:
 
-   If Ollama is already running as a background service, the `ollama serve` command may not be needed.
+```bash
+ollama serve
+```
 
-3. Start the Spring Boot application:
+### 3. Run the Application
 
-   **Windows**
-   ```powershell
-   .\mvnw.cmd spring-boot:run
-   ```
+**Windows**
 
-   **macOS / Linux**
-   ```bash
-   ./mvnw spring-boot:run
-   ```
+```powershell
+.\mvnw.cmd spring-boot:run
+```
 
-   Alternatively, import the project as an existing Maven project in Eclipse / Spring Tool Suite and run `AiOllamaApplication.java`.
+**macOS / Linux**
 
-4. Open the application:
+```bash
+./mvnw spring-boot:run
+```
 
-   ```text
-   http://localhost:8088/
-   ```
+Alternatively, import the project into Eclipse or Spring Tool Suite as an existing Maven project and run `AiOllamaApplication.java`.
 
-## Configuration
+### 4. Open the Application
 
-Edit `src/main/resources/application.properties` to change the port, Ollama URL, model, or temperature:
+<div align="center">
+
+### 🌐 http://localhost:8088/
+
+</div>
+
+## 🔧 Configuration
+
+Update `src/main/resources/application.properties`:
 
 ```properties
 spring.application.name=IntervexaAI
 server.port=8088
+
 spring.ai.ollama.base-url=http://localhost:11434
 spring.ai.ollama.chat.options.model=qwen2.5:3b
 spring.ai.ollama.chat.options.temperature=0.7
 ```
 
-Make sure the configured model is available locally in Ollama.
+## 🔌 API Endpoints
 
-## Project Structure
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/interview/question` | Generate an interview question |
+| POST | `/interview/evaluate` | Evaluate a candidate's answer |
+
+### Sample Evaluation Request
+
+```json
+{
+  "skill": "Java",
+  "difficulty": "Beginner",
+  "question": "What is inheritance in Java?",
+  "expectedAnswer": "Inheritance allows a class to acquire properties and methods from another class.",
+  "candidateAnswer": "Inheritance allows one class to reuse the fields and methods of another class."
+}
+```
+
+## 📁 Project Structure
 
 ```text
 Intervexa-AI/
@@ -91,7 +152,8 @@ Intervexa-AI/
 │   ├── main/
 │   │   ├── java/com/example/demo/
 │   │   │   ├── AiOllamaApplication.java
-│   │   │   └── controller/InterviewController.java
+│   │   │   └── controller/
+│   │   │       └── InterviewController.java
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       └── static/
@@ -105,31 +167,35 @@ Intervexa-AI/
 └── README.md
 ```
 
-## API Endpoints
+## 📌 Current Scope & Limitations
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| `GET` | `/interview/question` | Generate a question using `skill`, `difficulty`, and optional `customTopic` query parameters |
-| `POST` | `/interview/evaluate` | Evaluate a submitted answer (JSON request body) |
+- Ollama and the selected local model must be running for AI features.
+- Interview history, analytics, roadmap progress, and preferences are stored in browser `localStorage`.
+- Server-side database persistence and user authentication are not currently implemented.
+- Answer screening uses heuristic checks and may not classify every answer correctly.
+- AI-generated scores are practice guidance, not objective hiring assessments.
+- This project is an educational portfolio MVP, not a production hiring system.
 
-## Notes & Limitations
+## 🔮 Future Enhancements
 
-- Ollama must be running and the selected model must be downloaded before AI features can work.
-- AI-generated scores and feedback are suggestions; they should not be treated as an objective hiring assessment.
-- Basic server-side answer screening is heuristic-based and may not correctly classify every valid or invalid answer.
-- Browser-stored data is local to the browser profile and device. Clearing site data can remove it.
-- This repository is an educational portfolio project / MVP, not a production hiring system.
+- MySQL database integration.
+- User authentication and authorization.
+- Improved answer validation.
+- More automated backend and integration tests.
+- Deployment and CI/CD integration.
 
-## Future Improvements
+---
 
-- Persist users, interviews, and analytics in MySQL.
-- Add authentication and per-user data isolation.
-- Expand automated controller and integration tests.
-- Improve answer-quality validation and structured AI responses.
-- Add deployment configuration and CI checks.
+## 👩‍💻 Author
 
-## Author
+<div align="center">
 
-**Jemima Mary P**
+**Jenifer P**
 
-Java Full Stack & AI application development portfolio project.
+Java Full Stack & AI Application Development
+
+[![GitHub](https://img.shields.io/badge/GitHub-jenifer1104p-181717?style=for-the-badge&logo=github)](https://github.com/jenifer1104p)
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:06B6D4,50:312E81,100:0F172A&height=100&section=footer" width="100%" alt="Footer" />
+
+</div>
